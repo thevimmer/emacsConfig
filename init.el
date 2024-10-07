@@ -28,6 +28,7 @@
   (package-refresh-contents)
   (package-install 'org))
 (setq org-log-done 'time)
+(setq org-startup-with-latex-preview t)
 
 ;; Org Tempo
 (require 'org-tempo)
@@ -38,3 +39,21 @@
   (package-install 'doom-themes))
 (require 'doom-themes)
 (load-theme 'doom-tokyo-night t)
+
+;; Doom Modeline
+(unless (package-installed-p 'doom-modeline)
+  (package-refresh-contents)
+  (package-install 'doom-modeline))
+(require 'doom-modeline)
+(doom-modeline-mode 1)
+(setq doom-modeline-height 15)
+(setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-minor-modes nil)
+
+;; Icons
+(unless (package-installed-p 'all-the-icons)
+  (package-refresh-contents)
+  (package-install 'all-the-icons))
+(unless (find-font (font-spec :name "all-the-icons"))
+  (all-the-icons-install-fonts t))
