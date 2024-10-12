@@ -18,8 +18,7 @@
 
 ;; Evil Mode
 (unless (package-installed-p 'evil)
-  (package-refresh-contents)
-  (package-install 'evil))
+  (package-refresh-contents))
 (require 'evil)
 (evil-mode 1)
 
